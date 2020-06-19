@@ -15,9 +15,15 @@ variable "datadog_app_key" {
 # -----
 ## ENABLE MONITORS
 
-variable "enable_monitor_cpu" {
+variable "enable_monitor_avg_cpu" {
   type        = bool
-  description = "Enable CPU monitor (TRUE/false)"
+  description = "Enable avg CPU monitor (TRUE/false)"
+  default = true
+}
+
+variable "enable_monitor_io_cpu" {
+  type        = bool
+  description = "Enable CPU I/O wait monitor (TRUE/false)"
   default = true
 }
 

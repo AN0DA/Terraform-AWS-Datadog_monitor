@@ -4,7 +4,7 @@
 variable "prefix" {
   type        = string
   description = "Monitor prefix, displayed in '[ ]'"
-  default     = "AWS"
+  default     = "AGENT"
 }
 
 variable "name" {
