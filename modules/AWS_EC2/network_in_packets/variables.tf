@@ -10,7 +10,7 @@ variable "prefix" {
 variable "name" {
   type        = string
   description = "Monitor name"
-  default     = "CPU usage"
+  default     = "network in (packets)"
 }
 
 
@@ -23,7 +23,7 @@ variable "monitor_enabled" {
 variable "datadog_monitor_tags" {
   description = "Configurable labels that can be applied to monitor"
   type        = list
-  default     = ["AWS", "cpu"]
+  default     = ["CloudWatch", "EC2", "network", "in"]
 }
 
 
@@ -41,14 +41,6 @@ variable "period" {
   description = "Monitoring period in minutes"
   default     = "10m"
 }
-
-variable "monitor_silenced" {
-  type        = string
-  description = "Each scope will be muted until the given POSIX timestamp or forever if the value is 0"
-  default     = "1"
-}
-
-
 
 variable "notify_no_data" {
   type        = string

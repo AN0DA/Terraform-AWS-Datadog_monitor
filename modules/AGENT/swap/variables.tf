@@ -10,7 +10,7 @@ variable "prefix" {
 variable "name" {
   type        = string
   description = "Monitor name"
-  default     = "CPU I/O wait"
+  default     = "swap usage"
 }
 
 
@@ -23,7 +23,7 @@ variable "monitor_enabled" {
 variable "datadog_monitor_tags" {
   description = "Configurable labels that can be applied to monitor"
   type        = list
-  default     = ["AGENT", "cpu", "I/O"]
+  default     = ["AGENT", "swap"]
 }
 
 
@@ -41,6 +41,8 @@ variable "period" {
   description = "Monitoring period in minutes"
   default     = "10m"
 }
+
+
 
 variable "notify_no_data" {
   type        = string
@@ -77,6 +79,8 @@ variable "critical_threshold" {
   description = "Percent of CPU usage for critical threshold"
   default     = "80"
 }
+
+
 
 variable "selector" {
   description = "Selector for enabling monitor for specific hosts, host tags"

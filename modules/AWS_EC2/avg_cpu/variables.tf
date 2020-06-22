@@ -4,13 +4,13 @@
 variable "prefix" {
   type        = string
   description = "Monitor prefix, displayed in '[ ]'"
-  default     = "AGENT"
+  default     = "AWS EC2"
 }
 
 variable "name" {
   type        = string
   description = "Monitor name"
-  default     = "CPU I/O wait"
+  default     = "CPU usage"
 }
 
 
@@ -23,7 +23,7 @@ variable "monitor_enabled" {
 variable "datadog_monitor_tags" {
   description = "Configurable labels that can be applied to monitor"
   type        = list
-  default     = ["AGENT", "cpu", "I/O"]
+  default     = ["CloudWatch", "EC2", "cpu"]
 }
 
 
@@ -41,6 +41,14 @@ variable "period" {
   description = "Monitoring period in minutes"
   default     = "10m"
 }
+
+variable "monitor_silenced" {
+  type        = string
+  description = "Each scope will be muted until the given POSIX timestamp or forever if the value is 0"
+  default     = "1"
+}
+
+
 
 variable "notify_no_data" {
   type        = string
@@ -77,6 +85,8 @@ variable "critical_threshold" {
   description = "Percent of CPU usage for critical threshold"
   default     = "80"
 }
+
+
 
 variable "selector" {
   description = "Selector for enabling monitor for specific hosts, host tags"

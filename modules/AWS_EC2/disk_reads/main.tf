@@ -1,16 +1,16 @@
-resource "datadog_monitor" "cpu_io_wait" {
+resource "datadog_monitor" "disk_reads" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type
 
   message = <<EOF
-  CPU I/O usage for last ${var.period} on host {host.name} ({host.ip})
+  Disk read for last ${var.period} on host {host.name} ({host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "CPU I/O usage for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
-  query              = "avg(last_${var.period}):avg:system.cpu.iowait{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
+  escalation_message = "Disk read for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  query              = "avg(last_${var.period}):avg:aws.ec2.disk_read_bytes{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {
     ok       = var.ok_threshold
