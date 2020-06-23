@@ -16,8 +16,8 @@ Terraform script creating Datadog monitors for AWS integration.
     - [x] Disk writes (bytes) monitor
     - [x] Network in (bytes) monitor
     - [x] Network out (bytes) monitor
-    - [x] Network in (packets) monitor
-    - [x] Network out (packets) monitor
+    - [ ] Network in (packets) monitor
+    - [ ] Network out (packets) monitor
 - Datadog Agent [**CAUTION: require Datadog agent**]
     - [x] Memory monitor
     - [x] CPU I/O monitor
