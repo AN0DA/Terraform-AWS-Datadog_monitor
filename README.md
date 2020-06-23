@@ -6,8 +6,7 @@ Terraform script creating Datadog monitors for AWS integration.
 
 ## Current state
 
-[ ] **TODO: Set default thresholds**
-
+- [ ] **TODO: Set default thresholds**
 - AWS EC2
     - [x] Config provider
     - [x] Avg CPU monitor
