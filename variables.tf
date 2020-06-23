@@ -35,7 +35,7 @@ variable "enable_monitor_swap" {
 }
 
 
-### CLOUDWATCH
+### EC2
 variable "enable_monitor_avg_cpu" {
   type        = bool
   description = "Enable avg CPU monitor (TRUE/false)"
@@ -81,5 +81,43 @@ variable "enable_monitor_network_out_packets" {
 variable "enable_monitor_host_status" {
   type        = bool
   description = "Enable host status monitor (TRUE/false)"
+  default = true
+}
+
+
+### LAMBDA
+variable "enable_monitor_duration" {
+  type        = bool
+  description = "Enable Lambda avg duration monitor (TRUE/false)"
+  default = true
+}
+
+variable "enable_monitor_init_duration" {
+  type        = bool
+  description = "Enable Lambda avg init duration monitor (TRUE/false)"
+  default = true
+}
+
+variable "enable_monitor_invocations" {
+  type        = bool
+  description = "Enable invocations monitor (TRUE/false)"
+  default = true
+}
+
+variable "enable_monitor_invocations_error" {
+  type        = bool
+  description = "Enable invocations error monitor (TRUE/false)"
+  default = true
+}
+
+variable "enable_monitor_max_memory_used" {
+  type        = bool
+  description = "Enable max memory used monitor (TRUE/false)"
+  default = true
+}
+
+variable "enable_monitor_timeouts" {
+  type        = bool
+  description = "Enable timeouts monitor (TRUE/false)"
   default = true
 }

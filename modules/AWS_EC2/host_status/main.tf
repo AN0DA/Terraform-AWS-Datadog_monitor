@@ -1,4 +1,4 @@
-resource "datadog_monitor" "host_status" {
+resource "datadog_monitor" "ec2_host_status" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type

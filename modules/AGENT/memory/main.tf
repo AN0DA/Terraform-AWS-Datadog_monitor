@@ -1,4 +1,4 @@
-resource "datadog_monitor" "memory_usage" {
+resource "datadog_monitor" "agent_memory_usage" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type

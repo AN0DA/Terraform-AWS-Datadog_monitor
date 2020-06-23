@@ -23,7 +23,7 @@ variable "monitor_enabled" {
 variable "datadog_monitor_tags" {
   description = "Configurable labels that can be applied to monitor"
   type        = list
-  default     = ["AGENT", "RAM"]
+  default     = ["AGENT", "memory"]
 }
 
 

@@ -1,4 +1,4 @@
-resource "datadog_monitor" "cpu_usage" {
+resource "datadog_monitor" "ec2_cpu_usage" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type

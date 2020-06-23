@@ -1,4 +1,4 @@
-resource "datadog_monitor" "disk_reads" {
+resource "datadog_monitor" "ec2_disk_reads" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type

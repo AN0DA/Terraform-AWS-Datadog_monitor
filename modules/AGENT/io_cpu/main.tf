@@ -1,4 +1,4 @@
-resource "datadog_monitor" "cpu_io_wait" {
+resource "datadog_monitor" "agent_cpu_io_wait" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type

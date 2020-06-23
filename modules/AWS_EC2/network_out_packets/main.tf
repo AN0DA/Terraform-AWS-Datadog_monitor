@@ -1,4 +1,4 @@
-resource "datadog_monitor" "network_out_packets" {
+resource "datadog_monitor" "ec2_network_out_packets" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type

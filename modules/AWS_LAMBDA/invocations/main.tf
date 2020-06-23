@@ -1,16 +1,16 @@
-resource "datadog_monitor" "ec2_disk_writes" {
+resource "datadog_monitor" "lambda_invocations" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type
 
   message = <<EOF
-  Disk write for last ${var.period} on host {host.name} ({host.ip})
+  Lambda invocations for last ${var.period} on host {host.name} ({host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Disk write for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
-  query              = "avg(last_${var.period}):avg:aws.ec2.disk_write_bytes{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
+  escalation_message = "Lambda invocations for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  query              = "avg(last_${var.period}):avg:aws.lambda.enhanced.invocations{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {
     ok       = var.ok_threshold

@@ -24,7 +24,7 @@ module "swap_monitor" {
 }
 
 
-## CLOUDWATCH
+## EC2
 module "avg_cpu_monitor" {
     source = "./modules/AWS_EC2/avg_cpu"
 
@@ -73,4 +73,42 @@ module "avg_network_host_status" {
     source = "./modules/AWS_EC2/host_status"
 
     monitor_enabled = var.enable_monitor_host_status
+}
+
+
+## LAMBDA
+module "duration" {
+    source = "./modules/AWS_LAMBDA/duration"
+
+    monitor_enabled = var.enable_monitor_duration
+}
+
+module "init_duration" {
+    source = "./modules/AWS_LAMBDA/init_duration"
+
+    monitor_enabled = var.enable_monitor_init_duration
+}
+
+module "invocations" {
+    source = "./modules/AWS_LAMBDA/invocations"
+
+    monitor_enabled = var.enable_monitor_invocations
+}
+
+module "invocations_error" {
+    source = "./modules/AWS_LAMBDA/invocations_error"
+
+    monitor_enabled = var.enable_monitor_invocations_error
+}
+
+module "max_memory_used" {
+    source = "./modules/AWS_LAMBDA/max_memory_used"
+
+    monitor_enabled = var.enable_monitor_max_memory_used
+}
+
+module "timeouts" {
+    source = "./modules/AWS_LAMBDA/timeouts"
+
+    monitor_enabled = var.enable_monitor_timeouts
 }
