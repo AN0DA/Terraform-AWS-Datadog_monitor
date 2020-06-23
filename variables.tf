@@ -77,3 +77,9 @@ variable "enable_monitor_network_out_packets" {
   description = "Enable network out (packets) monitor (TRUE/false)"
   default = true
 }
+
+variable "enable_monitor_host_status" {
+  type        = bool
+  description = "Enable host status monitor (TRUE/false)"
+  default = true
+}

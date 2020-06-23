@@ -6,18 +6,17 @@ Terraform script creating Datadog monitors for AWS integration.
 
 ## Current state
 
-[ ] **TODO: Set default thresholds**
-
+- [ ] **TODO: Set default thresholds**
 - AWS EC2
     - [x] Config provider
     - [x] Avg CPU monitor
-    - [ ] Status Check Fail monitor
+    - [x] Host status monitor
     - [x] Disk reads (bytes) monitor
     - [x] Disk writes (bytes) monitor
     - [x] Network in (bytes) monitor
     - [x] Network out (bytes) monitor
-    - [x] Network in (packets) monitor
-    - [x] Network out (packets) monitor
+    - [ ] Network in (packets) monitor
+    - [ ] Network out (packets) monitor
 - Datadog Agent [**CAUTION: require Datadog agent**]
     - [x] Memory monitor
     - [x] CPU I/O monitor
