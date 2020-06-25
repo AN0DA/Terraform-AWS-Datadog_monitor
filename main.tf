@@ -49,11 +49,10 @@ module "avg_network_in_bytes" {
     monitor_enabled = var.enable_monitor_network_in_bytes
 }
 
-# cannot obtain data
 module "avg_network_in_packets" {
     source = "./modules/AWS_EC2/network_in_packets"
 
-    monitor_enabled = false #var.enable_monitor_network_in_packets
+    monitor_enabled = var.enable_monitor_network_in_packets
 }
 
 module "avg_network_out_bytes" {
@@ -62,11 +61,10 @@ module "avg_network_out_bytes" {
     monitor_enabled = var.enable_monitor_network_out_bytes
 }
 
-# cannot obtain data
 module "avg_network_out_packets" {
     source = "./modules/AWS_EC2/network_out_packets"
 
-    monitor_enabled = false #var.enable_monitor_network_out_packets
+    monitor_enabled = var.enable_monitor_network_out_packets
 }
 
 module "avg_network_host_status" {

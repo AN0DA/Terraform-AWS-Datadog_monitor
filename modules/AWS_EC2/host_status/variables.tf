@@ -42,14 +42,6 @@ variable "period" {
   default     = "10m"
 }
 
-variable "monitor_silenced" {
-  type        = string
-  description = "Each scope will be muted until the given POSIX timestamp or forever if the value is 0"
-  default     = "1"
-}
-
-
-
 variable "notify_no_data" {
   type        = string
   description = "A flag indicating whether this monitor will notify when data stops reporting"
@@ -86,7 +78,11 @@ variable "critical_threshold" {
   default     = "0"
 }
 
-
+variable "evaluation_delay" {
+  type        = string
+  description = "Time (in seconds) to delay evaluation, as a non-negative integer. Ex. if the value is set to 300, the timeframe is set to last_5m and the time is 7:00, the monitor will evaluate data from 6:50 to 6:55."
+  default     = "900"
+}
 
 variable "selector" {
   description = "Selector for enabling monitor for specific hosts, host tags"

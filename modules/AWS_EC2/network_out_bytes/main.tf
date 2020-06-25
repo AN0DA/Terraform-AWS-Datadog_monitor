@@ -22,5 +22,7 @@ resource "datadog_monitor" "ec2_network_out_bytes" {
   new_host_delay    = var.new_host_delay
   notify_no_data    = var.notify_no_data
 
+  evaluation_delay = var.evaluation_delay
+
   tags = var.datadog_monitor_tags
 }
