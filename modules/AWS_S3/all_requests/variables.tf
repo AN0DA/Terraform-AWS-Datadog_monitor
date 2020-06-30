@@ -4,13 +4,13 @@
 variable "prefix" {
   type        = string
   description = "Monitor prefix, displayed in '[ ]'"
-  default     = "AWS LAMBDA"
+  default     = "AWS S3"
 }
 
 variable "name" {
   type        = string
   description = "Monitor name"
-  default     = "Max memory used"
+  default     = "All requests"
 }
 
 
@@ -23,7 +23,7 @@ variable "monitor_enabled" {
 variable "datadog_monitor_tags" {
   description = "Configurable labels that can be applied to monitor"
   type        = list
-  default     = ["CloudWatch", "Lambda", "memory"]
+  default     = ["CloudWatch", "S3", "request"]
 }
 
 
@@ -33,7 +33,7 @@ variable "datadog_monitor_tags" {
 variable "alert_type" {
   type        = string
   description = "Type of the monitor (e.g. `metric alert`, `service check`, `event alert`, `query alert`)"
-  default     = "query alert"
+  default     = "metric alert"
 }
 
 variable "period" {
@@ -41,6 +41,14 @@ variable "period" {
   description = "Monitoring period in minutes"
   default     = "10m"
 }
+
+variable "monitor_silenced" {
+  type        = string
+  description = "Each scope will be muted until the given POSIX timestamp or forever if the value is 0"
+  default     = "1"
+}
+
+
 
 variable "notify_no_data" {
   type        = string
@@ -105,7 +113,7 @@ variable "escalation_notify" {
 variable "group_by" {
   type        = string
   description = "Monitor query group by selector"
-  default     = "{functionname}"
+  default     = "{bucketname}"
 }
 
 variable "remediation" {

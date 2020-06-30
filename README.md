@@ -8,28 +8,47 @@ Terraform script creating Datadog monitors for AWS integration.
 
 ## Current state
 
+> ***Legend:***
+> [ ] - Not implemented
+> [?] - Implemented, not tested
+> [x] - Implemented, working
 - [ ] **TODO: Set default thresholds**
-- AWS EC2
-    - [x] Config provider
-    - [x] Avg CPU monitor
-    - [x] Host status monitor
-    - [x] Disk reads (bytes) monitor
-    - [x] Disk writes (bytes) monitor
-    - [x] Network in (bytes) monitor
-    - [x] Network out (bytes) monitor
-    - [x] Network in (packets) monitor
-    - [x] Network out (packets) monitor
-- AWS LAMBDA
-    - [x] Duration monitor
-    - [?] Init duration monitor
-    - [x] Invocations monitor
-    - [x] Invocation errors monitor
-    - [?] Max memory used monitor
-    - [?] Timeouts monitor
-- Datadog Agent [**CAUTION: require Datadog agent**]
-    - [x] Memory monitor
-    - [x] CPU I/O monitor
-    - [x] Swap monitor
+- AWS
+  - AWS EC2
+      - [x] Config provider
+      - [x] Avg CPU monitor
+      - [x] Host status monitor
+      - [x] Disk reads (bytes) monitor
+      - [x] Disk writes (bytes) monitor
+      - [x] Network in (bytes) monitor
+      - [x] Network out (bytes) monitor
+      - [x] Network in (packets) monitor
+      - [x] Network out (packets) monitor
+      - Datadog Agent [**CAUTION: require Datadog agent installed**]
+        - [x] Memory monitor
+        - [x] CPU I/O monitor
+        - [x] Swap monitor
+  - AWS Lambda
+      - [x] Duration monitor
+      - [?] Init duration monitor
+      - [x] Invocations monitor
+      - [x] Invocation errors monitor
+      - [?] Max memory used monitor
+      - [?] Timeouts monitor
+  - AWS S3
+      - [x] 4xx error monitor
+      - [x] 5xx error monitor
+      - [x] Bucket size in bytes monitor
+      - [x] Number of objects monitor
+      - [x] Total request latency monitor
+      - [x] First byte latency monitor
+      - [x] Bytes downloaded monitor
+      - [x] Bytes uploaded monitor
+      - [x] All requests monitor
+      - [x] GET requests monitor
+      - [x] PUT requests monitor
+  - AWS DynamoDB
+  - AWS RDS
 
 
 
@@ -45,9 +64,10 @@ datadog_app_key = ""
 
 # OPTIONAL
 
-enable_monitor_avg_cpu = [TRUE/false]
-enable_monitor_io_cpu = [TRUE/false]
-enable_monitor_memory = [TRUE/false]
+enable_monitor_avg_cpu =  # TRUE/false
+enable_monitor_io_cpu =   # TRUE/false
+enable_monitor_memory =   # TRUE/false
+# (...)
 
 
 ```

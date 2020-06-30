@@ -1,16 +1,16 @@
-resource "datadog_monitor" "lambda_max_memory_used" {
+resource "datadog_monitor" "s3_number_of_objects" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type
 
   message = <<EOF
-  Lambda maximum used memory for last ${var.period} on host {host.name} ({host.ip})
+  Number of objects for last ${var.period} on host {host.name} ({host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Lambda maximum used memory for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
-  query              = "max(last_${var.period}):avg:aws.lambda.max_memory_used{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
+  escalation_message = "Number of objects for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  query              = "avg(last_${var.period}):avg:aws.s3.number_of_objects{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {
     ok       = var.ok_threshold
@@ -23,7 +23,7 @@ resource "datadog_monitor" "lambda_max_memory_used" {
   notify_no_data    = var.notify_no_data
 
   require_full_window = var.require_full_window
-
+  
   evaluation_delay = var.evaluation_delay
 
   tags = var.datadog_monitor_tags

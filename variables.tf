@@ -121,3 +121,70 @@ variable "enable_monitor_timeouts" {
   description = "Enable timeouts monitor (TRUE/false)"
   default = true
 }
+
+### S3
+variable "_4xx_errors" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "_5xx_errors" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "all_requests" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "bucket_size_bytes" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "bytes_downloaded" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "bytes_uploaded" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "first_byte_latency" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "get_requests" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "number_of_objects" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "put_requests" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "total_request_latency" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}

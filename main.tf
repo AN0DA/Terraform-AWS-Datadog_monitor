@@ -110,3 +110,71 @@ module "timeouts" {
 
     monitor_enabled = var.enable_monitor_timeouts
 }
+
+
+## S3
+module "_4xx_errors" {
+    source = "./modules/AWS_S3/4xx_errors"
+
+    monitor_enabled = var._4xx_errors
+}
+
+module "_5xx_errors" {
+    source = "./modules/AWS_S3/5xx_errors"
+
+    monitor_enabled = var._5xx_errors
+}
+
+module "all_requests" {
+    source = "./modules/AWS_S3/all_requests"
+
+    monitor_enabled = var.all_requests
+}
+
+module "bucket_size_bytes" {
+    source = "./modules/AWS_S3/bucket_size_bytes"
+
+    monitor_enabled = var.bucket_size_bytes
+}
+
+module "bytes_downloaded" {
+    source = "./modules/AWS_S3/bytes_downloaded"
+
+    monitor_enabled = var.bytes_downloaded
+}
+
+module "bytes_uploaded" {
+    source = "./modules/AWS_S3/bytes_uploaded"
+
+    monitor_enabled = var.bytes_uploaded
+}
+
+module "first_byte_latency" {
+    source = "./modules/AWS_S3/first_byte_latency"
+
+    monitor_enabled = var.first_byte_latency
+}
+
+module "get_requests" {
+    source = "./modules/AWS_S3/get_requests"
+
+    monitor_enabled = var.get_requests
+}
+
+module "number_of_objects" {
+    source = "./modules/AWS_S3/number_of_objects"
+
+    monitor_enabled = var.number_of_objects
+}
+
+module "put_requests" {
+    source = "./modules/AWS_S3/put_requests"
+
+    monitor_enabled = var.put_requests
+}
+
+module "total_request_latency" {
+    source = "./modules/AWS_S3/total_request_latency"
+
+    monitor_enabled = var.total_request_latency
+}
