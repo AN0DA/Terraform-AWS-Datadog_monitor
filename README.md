@@ -48,22 +48,22 @@ Terraform script creating Datadog monitors for AWS integration.
       - [x] GET requests monitor
       - [x] PUT requests monitor
   - AWS DynamoDB
-      - [ ] account_provisioned_read_capacity_utilization
-      - [ ] account_provisioned_write_capacity_utilization
-      - [ ] consumed_read_capacity_units
-      - [ ] consumed_write_capacity_units
-      - [ ] item_count
-      - [ ] read_throttle_events
-      - [ ] replication_latency
-      - [ ] returned_item_count
-      - [ ] returned_records_count
-      - [ ] successful_request_latency
-      - [ ] system_errors
-      - [ ] table_size
-      - [ ] throttled_requests
-      - [ ] transaction_conflict
-      - [ ] user_errors
-      - [ ] write_throttle_events
+      - [?] account_provisioned_read_capacity_utilization
+      - [?] account_provisioned_write_capacity_utilization
+      - [?] consumed_read_capacity_units
+      - [?] consumed_write_capacity_units
+      - [?] item_count
+      - [?] read_throttle_events
+      - [?] replication_latency
+      - [?] returned_item_count
+      - [?] returned_records_count
+      - [?] successful_request_latency
+      - [?] system_errors
+      - [?] table_size
+      - [?] throttled_requests
+      - [?] transaction_conflict
+      - [?] user_errors
+      - [?] write_throttle_events
   - AWS RDS
 
 

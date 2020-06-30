@@ -178,3 +178,102 @@ module "total_request_latency" {
 
     monitor_enabled = var.total_request_latency
 }
+
+
+## DynamoDB
+
+module "account_provisioned_read_capacity_utilization" {
+    source = "./modules/AWS_DYNAMODB/account_provisioned_read_capacity_utilization"
+
+    monitor_enabled = var.account_provisioned_read_capacity_utilization
+}
+
+module "account_provisioned_write_capacity_utilization" {
+    source = "./modules/AWS_DYNAMODB/account_provisioned_write_capacity_utilization"
+
+    monitor_enabled = var.account_provisioned_write_capacity_utilization
+}
+
+module "consumed_read_capacity_units" {
+    source = "./modules/AWS_DYNAMODB/consumed_read_capacity_units"
+
+    monitor_enabled = var.consumed_read_capacity_units
+}
+
+module "consumed_write_capacity_units" {
+    source = "./modules/AWS_DYNAMODB/consumed_write_capacity_units"
+
+    monitor_enabled = var.consumed_write_capacity_units
+}
+
+module "item_count" {
+    source = "./modules/AWS_DYNAMODB/item_count"
+
+    monitor_enabled = var.item_count
+}
+
+module "read_throttle_events" {
+    source = "./modules/AWS_DYNAMODB/read_throttle_events"
+
+    monitor_enabled = var.read_throttle_events
+}
+
+module "replication_latency" {
+    source = "./modules/AWS_DYNAMODB/replication_latency"
+
+    monitor_enabled = var.replication_latency
+}
+
+module "returned_item_count" {
+    source = "./modules/AWS_DYNAMODB/returned_item_count"
+
+    monitor_enabled = var.returned_item_count
+}
+
+module "returned_records_count" {
+    source = "./modules/AWS_DYNAMODB/returned_records_count"
+
+    monitor_enabled = var.returned_records_count
+}
+
+module "successful_request_latency" {
+    source = "./modules/AWS_DYNAMODB/successful_request_latency"
+
+    monitor_enabled = var.successful_request_latency
+}
+
+module "system_errors" {
+    source = "./modules/AWS_DYNAMODB/system_errors"
+
+    monitor_enabled = var.system_errors
+}
+
+module "table_size" {
+    source = "./modules/AWS_DYNAMODB/table_size"
+
+    monitor_enabled = var.table_size
+}
+
+module "throttled_requests" {
+    source = "./modules/AWS_DYNAMODB/throttled_requests"
+
+    monitor_enabled = var.throttled_requests
+}
+
+module "transaction_conflict" {
+    source = "./modules/AWS_DYNAMODB/transaction_conflict"
+
+    monitor_enabled = var.transaction_conflict
+}
+
+module "user_errors" {
+    source = "./modules/AWS_DYNAMODB/user_errors"
+
+    monitor_enabled = var.user_errors
+}
+
+module "write_throttle_events" {
+    source = "./modules/AWS_DYNAMODB/write_throttle_events"
+
+    monitor_enabled = var.write_throttle_events
+}

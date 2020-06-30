@@ -188,3 +188,102 @@ variable "total_request_latency" {
   description = "Enable total request latency monitor (TRUE/false)"
   default = true
 }
+
+### DYNAMODB
+
+
+variable "account_provisioned_read_capacity_utilization" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "account_provisioned_write_capacity_utilization" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "consumed_read_capacity_units" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "consumed_write_capacity_units" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "item_count" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "read_throttle_events" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "replication_latency" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "returned_item_count" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "returned_records_count" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "successful_request_latency" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "system_errors" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "table_size" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "throttled_requests" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "transaction_conflict" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "user_errors" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "write_throttle_events" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
