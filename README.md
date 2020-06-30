@@ -35,7 +35,7 @@ Terraform script creating Datadog monitors for AWS integration.
       - [x] Invocation errors monitor
       - [?] Max memory used monitor
       - [?] Timeouts monitor
-  - AWS S3
+  - AWS S3 (Require [enabling Request metrics](https://docs.aws.amazon.com/AmazonS3/latest/user-guide/configure-metrics.html))
       - [x] 4xx error monitor
       - [x] 5xx error monitor
       - [x] Bucket size in bytes monitor
@@ -48,6 +48,22 @@ Terraform script creating Datadog monitors for AWS integration.
       - [x] GET requests monitor
       - [x] PUT requests monitor
   - AWS DynamoDB
+      - [ ] account_provisioned_read_capacity_utilization
+      - [ ] account_provisioned_write_capacity_utilization
+      - [ ] consumed_read_capacity_units
+      - [ ] consumed_write_capacity_units
+      - [ ] item_count
+      - [ ] read_throttle_events
+      - [ ] replication_latency
+      - [ ] returned_item_count
+      - [ ] returned_records_count
+      - [ ] successful_request_latency
+      - [ ] system_errors
+      - [ ] table_size
+      - [ ] throttled_requests
+      - [ ] transaction_conflict
+      - [ ] user_errors
+      - [ ] write_throttle_events
   - AWS RDS
 
 
@@ -61,6 +77,7 @@ Create `*.auto.tfvars` file with pattern:
 ```hcl
 datadog_api_key = ""
 datadog_app_key = ""
+
 
 # OPTIONAL
 
