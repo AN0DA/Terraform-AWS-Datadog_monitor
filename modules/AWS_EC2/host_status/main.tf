@@ -4,12 +4,12 @@ resource "datadog_monitor" "ec2_host_status" {
   type  = var.alert_type
 
   message = <<EOF
-  Host status for last ${var.period} on host {host.name} ({host.ip})
+  Host status for last ${var.period} on host {host.name} ({host.region}, {host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Host status for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Host status for last ${var.period} on host {host.name} ({host.region}, {host.ip}) ${var.escalation_notify}"
   query              = "max(last_${var.period}):max:aws.ec2.host_ok{${join(",", compact(var.selector))}} by ${var.group_by} == ${var.critical_threshold}"
 
   renotify_interval = var.renotify_interval

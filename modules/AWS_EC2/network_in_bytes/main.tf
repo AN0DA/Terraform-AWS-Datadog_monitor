@@ -4,12 +4,12 @@ resource "datadog_monitor" "ec2_network_in_bytes" {
   type  = var.alert_type
 
   message = <<EOF
-  Network in (bytes) for last ${var.period} on host {host.name} ({host.ip})
+  Network in (bytes) for last ${var.period} on host {host.name} ({host.region}, {host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Network in (bytes) for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Network in (bytes) for last ${var.period} on host {host.name} ({host.region}, {host.ip}) ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.ec2.network_in{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

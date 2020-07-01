@@ -277,3 +277,114 @@ module "write_throttle_events" {
 
     monitor_enabled = var.write_throttle_events
 }
+
+
+## AWS RDS
+
+module "bin_log_disk_usage" {
+    source = "./modules/AWS_RDS/bin_log_disk_usage"
+
+    monitor_enabled = var.bin_log_disk_usage
+}
+
+module "burst_balance" {
+    source = "./modules/AWS_RDS/burst_balance"
+
+    monitor_enabled = var.burst_balance
+}
+
+module "cpuutilization" {
+    source = "./modules/AWS_RDS/cpuutilization"
+
+    monitor_enabled = var.cpuutilization
+}
+
+module "database_connections" {
+    source = "./modules/AWS_RDS/database_connections"
+
+    monitor_enabled = var.database_connections
+}
+
+module "dbload" {
+    source = "./modules/AWS_RDS/dbload"
+
+    monitor_enabled = var.dbload
+}
+
+module "dbload_cpu" {
+    source = "./modules/AWS_RDS/dbload_cpu"
+
+    monitor_enabled = var.dbload_cpu
+}
+
+module "disk_queue_depth" {
+    source = "./modules/AWS_RDS/disk_queue_depth"
+
+    monitor_enabled = var.disk_queue_depth
+}
+
+module "failed_sqlserver_agent_jobs_count" {
+    source = "./modules/AWS_RDS/failed_sqlserver_agent_jobs_count"
+
+    monitor_enabled = var.failed_sqlserver_agent_jobs_count
+}
+
+module "free_storage_space" {
+    source = "./modules/AWS_RDS/free_storage_space"
+
+    monitor_enabled = var.free_storage_space
+}
+
+module "freeable_memory" {
+    source = "./modules/AWS_RDS/freeable_memory"
+
+    monitor_enabled = var.freeable_memory
+}
+
+module "network_receive_throughput" {
+    source = "./modules/AWS_RDS/network_receive_throughput"
+
+    monitor_enabled = var.network_receive_throughput
+}
+
+module "network_transmit_throughput" {
+    source = "./modules/AWS_RDS/network_transmit_throughput"
+
+    monitor_enabled = var.network_transmit_throughput
+}
+
+module "read_iops" {
+    source = "./modules/AWS_RDS/read_iops"
+
+    monitor_enabled = var.read_iops
+}
+
+module "read_latency" {
+    source = "./modules/AWS_RDS/read_latency"
+
+    monitor_enabled = var.read_latency
+}
+
+module "swap_usage" {
+    source = "./modules/AWS_RDS/swap_usage"
+
+    monitor_enabled = var.swap_usage
+}
+
+module "total_storage_space" {
+    source = "./modules/AWS_RDS/total_storage_space"
+
+    monitor_enabled = var.total_storage_space
+}
+
+module "write_iops" {
+    source = "./modules/AWS_RDS/write_iops"
+
+    monitor_enabled = var.write_iops
+}
+
+module "write_latency" {
+    source = "./modules/AWS_RDS/write_latency"
+
+    monitor_enabled = var.write_latency
+}

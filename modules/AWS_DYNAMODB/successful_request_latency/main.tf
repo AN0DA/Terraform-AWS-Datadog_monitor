@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_successful_request_latency" {
   type  = var.alert_type
 
   message = <<EOF
-  Successful request latency for last ${var.period} on host {host.name} ({host.ip})
+  Successful request latency for last ${var.period} on fuction {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Successful request latency for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Successful request latency for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.successful_request_latency{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

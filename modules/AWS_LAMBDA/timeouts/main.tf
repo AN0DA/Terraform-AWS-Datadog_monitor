@@ -4,12 +4,12 @@ resource "datadog_monitor" "lambda_invocations_timeouts" {
   type  = var.alert_type
 
   message = <<EOF
-  Lambda invocations timeouts for last ${var.period} on host {host.name} ({host.ip})
+  Lambda invocations timeouts for last ${var.period} on fuction {functionname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Lambda invocations timeouts for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Lambda invocations timeouts for last ${var.period} on fuction {functionname.name} ${var.escalation_notify}"
   query              = "sum(last_${var.period}):avg:aws.lambda.timeouts{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

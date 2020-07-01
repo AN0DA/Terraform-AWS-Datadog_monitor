@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_returned_item_count" {
   type  = var.alert_type
 
   message = <<EOF
-  Returned item count for last ${var.period} on host {host.name} ({host.ip})
+  Returned item count for last ${var.period} on fuction {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Returned item count for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Returned item count for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.returned_item_count{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

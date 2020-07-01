@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_user_errors" {
   type  = var.alert_type
 
   message = <<EOF
-  User errors for last ${var.period} on host {host.name} ({host.ip})
+  User errors for last ${var.period} on fuction {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "User errors for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "User errors for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.user_errors{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

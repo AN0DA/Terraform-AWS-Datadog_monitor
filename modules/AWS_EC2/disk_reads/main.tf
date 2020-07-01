@@ -4,12 +4,12 @@ resource "datadog_monitor" "ec2_disk_reads" {
   type  = var.alert_type
 
   message = <<EOF
-  Disk read for last ${var.period} on host {host.name} ({host.ip})
+  Disk read for last ${var.period} on host {host.name} ({host.region}, {host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Disk read for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Disk read for last ${var.period} on host {host.name} ({host.region}, {host.ip}) ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.ec2.disk_read_bytes{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

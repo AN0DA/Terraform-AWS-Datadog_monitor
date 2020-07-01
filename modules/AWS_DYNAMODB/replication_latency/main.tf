@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_replication_latency" {
   type  = var.alert_type
 
   message = <<EOF
-  Replication latency for last ${var.period} on host {host.name} ({host.ip})
+  Replication latency for last ${var.period} on fuction {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Replication latency for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Replication latency for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.replication_latency{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

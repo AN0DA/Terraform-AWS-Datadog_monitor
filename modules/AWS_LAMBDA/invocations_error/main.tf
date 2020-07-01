@@ -4,12 +4,12 @@ resource "datadog_monitor" "lambda_invocations_error" {
   type  = var.alert_type
 
   message = <<EOF
-  Lambda invocations errors for last ${var.period} on host {host.name} ({host.ip})
+  Lambda invocations errors for last ${var.period} on fuction {functionname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Lambda invocations errors for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Lambda invocations errors for last ${var.period} on fuction {functionname.name} ${var.escalation_notify}"
   query              = "sum(last_${var.period}):avg:aws.lambda.errors{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

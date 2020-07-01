@@ -287,3 +287,114 @@ variable "write_throttle_events" {
   description = "Enable total request latency monitor (TRUE/false)"
   default = true
 }
+
+
+### RDS
+
+variable "bin_log_disk_usage" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "burst_balance" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "cpuutilization" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "database_connections" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "dbload" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "dbload_cpu" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "disk_queue_depth" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "failed_sqlserver_agent_jobs_count" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "free_storage_space" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "freeable_memory" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "network_receive_throughput" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "network_transmit_throughput" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "read_iops" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "read_latency" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "swap_usage" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "total_storage_space" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "write_iops" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}
+
+variable "write_latency" {
+  type        = bool
+  description = "Enable total request latency monitor (TRUE/false)"
+  default = true
+}

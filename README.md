@@ -65,8 +65,24 @@ Terraform script creating Datadog monitors for AWS integration.
       - [?] user_errors
       - [?] write_throttle_events
   - AWS RDS
-
-
+      - [?] bin_log_disk_usage
+      - [?] burst_balance
+      - [?] cpuutilization
+      - [?] database_connections
+      - [?] dbload
+      - [?] dbload_cpu
+      - [?] disk_queue_depth
+      - [?] failed_sqlserver_agent_jobs_count
+      - [?] free_storage_space
+      - [?] freeable_memory
+      - [?] network_receive_throughput
+      - [?] network_transmit_throughput
+      - [?] read_iops
+      - [?] read_latency
+      - [?] swap_usage
+      - [?] total_storage_space
+      - [?] write_iops
+      - [?] write_latency
 
 
 ## Auto variable filling

@@ -4,12 +4,12 @@ resource "datadog_monitor" "lambda_max_memory_used" {
   type  = var.alert_type
 
   message = <<EOF
-  Lambda maximum used memory for last ${var.period} on host {host.name} ({host.ip})
+  Lambda maximum used memory for last ${var.period} on fuction {functionname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Lambda maximum used memory for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Lambda maximum used memory for last ${var.period} on fuction {functionname.name} ${var.escalation_notify}"
   query              = "max(last_${var.period}):avg:aws.lambda.max_memory_used{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {
