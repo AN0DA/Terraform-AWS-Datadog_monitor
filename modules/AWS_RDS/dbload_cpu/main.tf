@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_dbload_cpu" {
   type  = var.alert_type
 
   message = <<EOF
-  Database load that use CPU for last ${var.period} on host {host.name} ({host.ip})
+  Database load that use CPU for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Database load that use CPU for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Database load that use CPU for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.dbload_cpu{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

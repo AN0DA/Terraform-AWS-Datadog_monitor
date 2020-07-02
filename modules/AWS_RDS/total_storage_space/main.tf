@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_total_storage_space" {
   type  = var.alert_type
 
   message = <<EOF
-  Total available storage space for last ${var.period} on host {host.name} ({host.ip})
+  Total available storage space for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Total available storage space for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Total available storage space for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.total_storage_space{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

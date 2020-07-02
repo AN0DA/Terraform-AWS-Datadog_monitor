@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_write_throttle_events" {
   type  = var.alert_type
 
   message = <<EOF
-  Write throttle events for last ${var.period} on fuction {bucketname.name}
+  Write throttle events for last ${var.period} on table {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Write throttle events for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
+  escalation_message = "Write throttle events for last ${var.period} on table {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.write_throttle_events{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

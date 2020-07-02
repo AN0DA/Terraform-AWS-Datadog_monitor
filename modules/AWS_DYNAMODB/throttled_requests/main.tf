@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_throttled_requests" {
   type  = var.alert_type
 
   message = <<EOF
-  Throttled requests for last ${var.period} on fuction {bucketname.name}
+  Throttled requests for last ${var.period} on table {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Throttled requests for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
+  escalation_message = "Throttled requests for last ${var.period} on table {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.throttled_requests{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

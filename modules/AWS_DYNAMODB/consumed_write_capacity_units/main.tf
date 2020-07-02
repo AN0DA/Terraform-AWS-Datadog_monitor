@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_consumed_write_capacity_units" {
   type  = var.alert_type
 
   message = <<EOF
-  Consumed write capacity units for last ${var.period} on fuction {bucketname.name}
+  Consumed write capacity units for last ${var.period} on table {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Consumed write capacity units for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
+  escalation_message = "Consumed write capacity units for last ${var.period} on table {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.consumed_write_capacity_units{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

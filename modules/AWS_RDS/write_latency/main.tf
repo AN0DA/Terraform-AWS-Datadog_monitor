@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_write_latency" {
   type  = var.alert_type
 
   message = <<EOF
-  Write latency for last ${var.period} on host {host.name} ({host.ip})
+  Write latency for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Write latency for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Write latency for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.write_latency{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

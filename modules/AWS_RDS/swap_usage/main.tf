@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_swap_usage" {
   type  = var.alert_type
 
   message = <<EOF
-  Swap usage for last ${var.period} on host {host.name} ({host.ip})
+  Swap usage for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Swap usage for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Swap usage for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.swap_usage{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

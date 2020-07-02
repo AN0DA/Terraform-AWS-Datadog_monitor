@@ -1,16 +1,16 @@
-resource "datadog_monitor" "rds_read_iops" {
+resource "datadog_monitor" "s3_4xx_errors" {
   count = var.monitor_enabled ? 1 : 0
   name  = "[${var.prefix}] ${var.name}"
   type  = var.alert_type
 
   message = <<EOF
-  Read IO operations for last ${var.period} on bucket {bucketname.name}
+  4xx errors for last ${var.period} on host {host.name} ({host.ip})
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Read IO operations for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
-  query              = "avg(last_${var.period}):avg:aws.rds.read_iops{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
+  escalation_message = "4xx errors for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  query              = "avg(last_${var.period}):avg:aws.s3.4xx_errors{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {
     ok       = var.ok_threshold

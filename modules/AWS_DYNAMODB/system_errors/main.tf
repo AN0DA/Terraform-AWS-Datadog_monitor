@@ -4,12 +4,12 @@ resource "datadog_monitor" "dynamo_system_errors" {
   type  = var.alert_type
 
   message = <<EOF
-  System errors for last ${var.period} on fuction {bucketname.name}
+  System errors for last ${var.period} on table {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "System errors for last ${var.period} on fuction {bucketname.name} ${var.escalation_notify}"
+  escalation_message = "System errors for last ${var.period} on table {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.dynamodb.system_errors{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

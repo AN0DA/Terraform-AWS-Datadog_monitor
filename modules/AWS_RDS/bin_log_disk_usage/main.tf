@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_bin_log_disk_usage" {
   type  = var.alert_type
 
   message = <<EOF
-  Disk space occupied by binary logs for last ${var.period} on host {host.name} ({host.ip})
+  Disk space occupied by binary logs for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Disk space occupied by binary logs for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Disk space occupied by binary logs for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.bin_log_disk_usage{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_cpuutilization" {
   type  = var.alert_type
 
   message = <<EOF
-  CPU utilization for last ${var.period} on host {host.name} ({host.ip})
+  CPU utilization for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "CPU utilization for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "CPU utilization for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.cpuutilization{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

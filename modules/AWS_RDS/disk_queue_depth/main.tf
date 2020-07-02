@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_disk_queue_depth" {
   type  = var.alert_type
 
   message = <<EOF
-  Disk queue depth for last ${var.period} on host {host.name} ({host.ip})
+  Disk queue depth for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Disk queue depth for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Disk queue depth for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.disk_queue_depth{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {

@@ -4,12 +4,12 @@ resource "datadog_monitor" "rds_free_storage_space" {
   type  = var.alert_type
 
   message = <<EOF
-  Free storage space for last ${var.period} on host {host.name} ({host.ip})
+  Free storage space for last ${var.period} on bucket {bucketname.name}
   ${var.remediation}
   ${var.notify}
   EOF
 
-  escalation_message = "Free storage space for last ${var.period} on host {host.name} ({host.ip}) ${var.escalation_notify}"
+  escalation_message = "Free storage space for last ${var.period} on bucket {bucketname.name} ${var.escalation_notify}"
   query              = "avg(last_${var.period}):avg:aws.rds.free_storage_space{${join(",", compact(var.selector))}} by ${var.group_by} > ${var.critical_threshold}"
 
   thresholds = {
